@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { chatInitialState ,ChatContext } from './chat-context';
 import { API_URL, API_TOKEN, API_HEADERS, API_MESSAGES_LIMIT_QUERY } from '../constants/api';
 
+const AUTHOR = 'Doodle';
+
 class GlobalState extends Component {
     state = chatInitialState;
 
@@ -25,7 +27,24 @@ class GlobalState extends Component {
     }
 
     postMessage = (message) => {
-        // TODO
+        const newMessage = {
+            author: AUTHOR,
+            timeStamp: Date.now(),
+            message
+        };
+
+        fetch(`${API_URL}${API_TOKEN}`, {
+            method: 'POST',
+            headers: API_HEADERS,
+            body: JSON.stringify(newMessage)
+        })
+        .then(response => response.json())
+        .then((payload) => {
+            this.setState(previousState => ({ messages: [...previousState.messages, payload] }));
+        })
+        .catch((error) => {
+            console.log('Something went wrong posting a message', error);
+        });
     }
 
     render() {
