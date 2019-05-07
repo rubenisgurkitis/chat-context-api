@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { chatInitialState ,ChatContext } from './chat-context';
 import { API_URL, API_TOKEN, API_HEADERS, API_MESSAGES_LIMIT_QUERY } from '../constants/api';
-
-const AUTHOR = 'Doodle';
+import { USER_NAME } from '../constants/user';
 
 class GlobalState extends Component {
     state = chatInitialState;
@@ -28,7 +27,7 @@ class GlobalState extends Component {
 
     postMessage = (message) => {
         const newMessage = {
-            author: AUTHOR,
+            author: USER_NAME,
             timeStamp: Date.now(),
             message
         };
@@ -51,7 +50,8 @@ class GlobalState extends Component {
         return (
             <ChatContext.Provider
                 value={{
-                    messages: this.state.messages
+                    messages: this.state.messages,
+                    postMessage: this.postMessage
                 }}
             >
                 {this.props.children}
