@@ -1,0 +1,21 @@
+.message {
+    background-color: white;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    padding: 8px;
+    border: 1px solid rgb(232, 234, 228);
+    max-width: 45%;
+}
+
+.message--self {
+    background-color: rgb(252, 246, 196);
+}
+
+.message__author, .message__date, .message__text {
+    padding: 4px 0;
+}
+
+.message__author, .message__date {
+    font-size: 12px;
+    color: rgb(205, 208, 211);
+}

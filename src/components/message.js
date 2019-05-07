@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import './message.css';
 
 class Message extends Component {
     render() {
@@ -16,7 +17,7 @@ class Message extends Component {
 Message.propTypes = {
     author: PropTypes.string.isRequired,
     text: PropTypes.string.isRequired,
-    date: PropTypes.number.isRequired
+    date: PropTypes.string.isRequired
 };
 
 export default Message;
