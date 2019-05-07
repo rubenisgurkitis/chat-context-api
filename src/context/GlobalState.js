@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { chatInitialState ,ChatContext } from './chat-context';
-import { API_URL, API_TOKEN, API_HEADERS, API_MESSAGES_LIMIT_QUERY } from '../constants/api';
+import { API_URL, API_TOKEN, API_HEADERS, API_QUERY } from '../constants/api';
 import { USER_NAME } from '../constants/user';
 
 class GlobalState extends Component {
     state = chatInitialState;
 
     componentDidMount() {
-        this.timer = setInterval(this.fetchMessages, 3000);
+        this.timer = setInterval(this.fetchMessages(), 3000);
     }
 
     componentWillUnmount() {
@@ -15,7 +15,7 @@ class GlobalState extends Component {
     }
 
     fetchMessages = () => {
-        fetch(`${API_URL}${API_TOKEN}${API_MESSAGES_LIMIT_QUERY}`, {headers: API_HEADERS})
+        fetch(`${API_URL}${API_TOKEN}${API_QUERY}`, {headers: API_HEADERS})
             .then(response => response.json())
             .then((payload) => {
                 this.setState({ messages: payload });
@@ -39,6 +39,8 @@ class GlobalState extends Component {
         })
         .then(response => response.json())
         .then((payload) => {
+            // Ugly but API is returning a string even though we are sending a number
+            payload.timestamp = parseInt(payload.timestamp, 10);
             this.setState(previousState => ({ messages: [...previousState.messages, payload] }));
         })
         .catch((error) => {

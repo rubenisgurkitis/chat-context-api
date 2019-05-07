@@ -11,9 +11,9 @@ class Messages extends Component {
         return (
             <React.Fragment>
                 {
-                    this.context.messages.map((message, index) => 
+                    this.context.messages.map((message, index) =>
                         <Message
-                            key={message.token}
+                            key={message._id}
                             author={message.author}
                             text={message.message}
                             date={message.timestamp}
