@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { ChatContext } from '../context/chat-context';
 
+import './message-input.css';
+
 const INPUT_PLACEHOLDER = 'Message';
 const BUTTON_TEXT = 'Send';
 const ENTER_KEY = 'Enter';

@@ -8,7 +8,7 @@ class Chat extends Component {
     render() {
         return (
             <React.Fragment>
-                <header>
+                <header className="header">
                     <h1>Doodle chat</h1>
                 </header>
                 <div className="chat-container">
