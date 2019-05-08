@@ -41,6 +41,7 @@
     border-radius: 4px;
     outline: none;
     cursor: pointer;
+    transition: background-color .5s;
 }
 
 .message-input__submit:hover {
