@@ -48,6 +48,10 @@
     border: 2px solid var(--orange);
 }
 
+.message-input__submit:active {
+    background-color: var(--orange);
+}
+
 .message-input__submit:disabled {
     background-color: antiquewhite;
     color: black;
