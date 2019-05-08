@@ -9,6 +9,18 @@ import './messages.css';
 class Messages extends Component {
     static contextType = ChatContext;
 
+    componentDidMount() {
+        this.scrollToBottom();
+    }
+
+    componentDidUpdate() {
+        this.scrollToBottom();
+    }
+
+    scrollToBottom = () => {
+        this.refs.scrollToBottom.scrollIntoView({ behavior: "smooth" });
+    }
+
     render() {
         return (
             <div className="messages-container">
@@ -23,6 +35,7 @@ class Messages extends Component {
                         />
                     )
                 }
+                <div ref="scrollToBottom"></div>
             </div>
         );
     }

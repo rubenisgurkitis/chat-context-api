@@ -41,3 +41,14 @@
     background-color: rgb(56, 152, 212);
     border: 2px solid rgb(255, 134, 110);
 }
+
+.message-input__submit:disabled {
+    background-color: antiquewhite;
+    color: black;
+    cursor: default;
+}
+
+.message-input__submit:disabled:hover {
+    background-color: antiquewhite;
+    border: 2px solid rgb(47, 118, 164);
+}

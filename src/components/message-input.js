@@ -15,8 +15,12 @@ class ChatInput extends Component {
         this.state = { inputValue: '' };
     }
 
+    hasInputValue = () => {
+        return this.state.inputValue.length > 0;
+    }
+
     sendMessage = () => {
-        if (this.state.inputValue.length > 0) {
+        if (this.hasInputValue()) {
             this.context.postMessage(this.state.inputValue);
             this.setState({ inputValue: '' });
         }
@@ -45,6 +49,7 @@ class ChatInput extends Component {
                 </input>
                 <button
                     className="message-input__submit"
+                    disabled={!this.hasInputValue()}
                     onClick={this.sendMessage}>
                     {BUTTON_TEXT}
                 </button>
