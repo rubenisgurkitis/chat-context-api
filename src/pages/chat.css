@@ -16,4 +16,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    background: url("../assets/chat-background.png") repeat;
+    background-size: contain;
 }
