@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { ChatContext } from '../context/chat-context';
 import Message from './message';
+import he from 'he';
 
 import { USER_NAME } from '../constants/user';
 
@@ -29,7 +30,7 @@ class Messages extends Component {
                         <Message
                             key={message._id}
                             author={message.author}
-                            text={message.message}
+                            text={he.decode(message.message)}
                             date={new Date(message.timestamp).toDateString()}
                             isSelfMessage={message.author === USER_NAME}
                         />
