@@ -7,6 +7,7 @@ class GlobalState extends Component {
     state = chatInitialState;
 
     componentDidMount() {
+        this.fetchMessages();
         this.timer = setInterval(this.fetchMessages, 3000);
     }
 

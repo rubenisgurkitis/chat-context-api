@@ -25,7 +25,7 @@ class Messages extends Component {
         return (
             <div className="messages-container">
                 {
-                    this.context.messages.map((message, index) =>
+                    this.context.messages.map((message) =>
                         <Message
                             key={message._id}
                             author={message.author}
