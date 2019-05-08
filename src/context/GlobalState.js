@@ -19,7 +19,8 @@ class GlobalState extends Component {
         fetch(`${API_URL}${API_TOKEN}${API_QUERY}`, {headers: API_HEADERS})
             .then(response => response.json())
             .then((payload) => {
-                this.setState({ messages: payload });
+                // No new messages means that an update is not required
+                if (this.state.messages.length !== payload.length) this.setState({ messages: payload });
             })
             .catch((error) => {
                 console.log('Something went wrong', error);
