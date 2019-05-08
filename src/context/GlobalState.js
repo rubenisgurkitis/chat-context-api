@@ -23,7 +23,7 @@ class GlobalState extends Component {
                 if (this.state.messages.length !== payload.length) this.setState({ messages: payload });
             })
             .catch((error) => {
-                console.log('Something went wrong', error);
+                console.log('Something went wrong fetching messages', error);
             });
     }
 
