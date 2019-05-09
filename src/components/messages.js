@@ -31,7 +31,7 @@ class Messages extends Component {
                             key={message._id}
                             author={message.author}
                             text={he.decode(message.message)}
-                            date={new Date(message.timestamp).toDateString()}
+                            date={new Date(message.timestamp).toLocaleString()}
                             isSelfMessage={message.author === USER_NAME}
                         />
                     )
